@@ -1,0 +1,47 @@
+<form   >
+  <!--<form ngNoForm action="http://localhost/work/insert.php" target="_blank" method="POST">-->
+ Name: <input name="name" [(ngModel)]="name">
+ <br>
+ Address: <input name="address" [(ngModel)]="address">
+  
+  <button type="submit" (click)="onSubmit()">Save</button>
+
+  
+ </form>
+
+ <div>
+
+  <table >
+    <tr> <th>id</th>
+     <th>Name</th>
+     <th>address</th>
+      <th> update</th>
+      <th>delete</th>
+  </tr>
+     <tr *ngFor="let student of list">
+       <td>{{student.id}}</td>
+       <td>{{student.name}}</td>
+       <td>{{student.address}}</td>
+       <td><button type="submit"(click)="Update(student.id,student.name,student.address)">Update</button></td>
+ <td> <button type="submit"(click)="onDelete(student.id)">Delete</button></td>
+      
+     </tr>
+   </table>
+
+ </div>
+
+ <form *ngIf="updateform" >
+ 
+ Name: <input name="name"  [(ngModel)]="upname" >
+ <br>
+ Address: <input name="address" [(ngModel)]="upaddress" >
+  
+  <button type="submit" (click)="onUpdate()">Update</button>
+  <button type="submit" (click)="cancel()">Cancel</button>
+
+  
+ </form>
+
+ <div>
+
+ </div>
